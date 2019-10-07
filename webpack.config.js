@@ -17,8 +17,8 @@ const defaultConf = env => ({
 module.exports = (env = {}) => {
     return [
         {
-            name: "main",
-            target: "web",
+            name: "renderer",
+            target: "electron-renderer",
             ...defaultConf(env),
             entry: "./src/renderer",
             mode: "development",
@@ -29,14 +29,14 @@ module.exports = (env = {}) => {
             },
         },
         {
-            name: "renderer",
+            name: "main",
             target: "electron-main",
             ...defaultConf(env),
             entry: "./src/main",
             mode: "development",
             devtool: "source-map",
             output: {
-                path: path.join(__dirname, "public"),
+                path: path.join(__dirname),
                 filename: "main.js",
             },
         },

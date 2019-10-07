@@ -9,7 +9,9 @@ function createWindow() {
     });
     win.loadFile("index.html");
     if (process.argv.find(arg => arg === "--debug")) {
-        win.webContents.openDevTools();
+        win.webContents.openDevTools({
+            mode: "undocked",
+        });
     }
     win.on("closed", () => {
         win = null;
